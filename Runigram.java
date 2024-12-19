@@ -87,7 +87,7 @@ public class Runigram {
 		Color [][] horizImage = new Color[rows][columns];
 		for(int i=0; i<rows; i++){
 			for(int j=0; j<columns; j++){
-				horizImage[i][j] = image[rows-1-i][j];
+				horizImage[i][j] = image[rows-1-i][j]; 
 			}
 		}
 		return horizImage;
@@ -140,14 +140,14 @@ public class Runigram {
 	 * The image is scaled (resized) to have the given width and height.
 	 */
 	public static Color[][] scaled(Color[][] image, int width, int height) {
-		int width0 = image[0].length;
-		int height0= image.length;
+		int width0 = image[0].length; //original width
+		int height0= image.length; //original height
 		double wScale= ((double)width0)/width;
 		double hScale = ((double)height0)/height;
 		Color [][]scaled = new Color [height][width];
 		for(int i =0; i<height; i++){
 			for(int j=0; j<width; j++){
-				int x = Math.min(height0-1,(int)(i*hScale));
+				int x = Math.min(height0-1,(int)(i*hScale)); //math.min to ensure it is in bounds of original image
 				int y = Math.min(width0-1,(int)(j*wScale));
 				scaled[i][j] = image[x][y];
 			}
