@@ -85,9 +85,9 @@ public class Runigram {
 		int rows = image.length;
 		int columns = image[0].length;
 		Color [][] horizImage = new Color[rows][columns];
-		for(int i=0; i<rows; i++){
-			for(int j=0; j<columns; j++){
-				horizImage[i][j] = image[rows-1-i][j]; 
+		for(int j=0; j<columns; j++){
+			for(int i=0; i<rows; i++){
+				horizImage[i][j] = image[i][columns-1-j]; 
 			}
 		}
 		return horizImage;
@@ -100,11 +100,12 @@ public class Runigram {
 		int rows = image.length;
 		int columns = image[0].length;
 		Color [][] vertImage = new Color[rows][columns];
-		for(int j=0; j<columns; j++){
-			for(int i=0; i<rows; i++){
-				vertImage[i][j] = image[i][columns-1-j];
+		for(int i=0; i<rows; i++){
+			for(int j=0; j<columns; j++){
+				vertImage[i][j] = image[rows-1-i][j];
 			}
 		}
+		
 		return vertImage;
 	}
 	
